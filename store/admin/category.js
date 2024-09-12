@@ -21,14 +21,14 @@ export const mutations = {
 //digunakan untuk melakukan request ke endpoint
 export const actions = {
   getCategoriesData({ commit, state }, payload) {
-    //search
+    //serach
     let search = payload ? payload : "";
-    return new Promise((resolve, reject) => {
-      //parameter q untuk pencarian data dan page dari state
-      this.$axios
-        .get("/api/admin/categories?q=${search}&page=${state.page}")
 
-        //success
+    //parameter q untuk pencarian data dan page dari state
+    return new Promise((resolve, reject) => {
+      this.$axios
+        .get(`/api/admin/categories?q=${search}&page=${state.page}`)
+
         .then((response) => {
           //commit ke mutation
           commit("SET_CATEGORIES_DATA", response.data.data);
@@ -37,18 +37,20 @@ export const actions = {
     });
   },
 
-  storeCategory({dispatch, commit}, payload) {
-    return new Promise((resolve, reject), payload) {
+  storeCategory({ dispatch, commit }, payload) {
+    return new Promise((resolve, reject) => {
       //post data ke api
-      this.$axios.post('/api/admin/categories', payload)
-
-      .then(() => {
-        dispatch(this.getCategoriesData)
-        resolve()
-      })
-      .catch(error => {
-        reject(error)
-      }) 
-    }
-  }
+      this.$axios
+        .post("/api/admin/categories", payload)
+        //success
+        .then(() => {
+          dispatch("getCategoriesData");
+          resolve();
+        })
+        //error
+        .catch((error) => {
+          reject(error);
+        });
+    });
+  },
 };

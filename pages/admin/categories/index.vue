@@ -7,47 +7,58 @@
             <div class="card border-0 rounded shadow-sm border-top-orange">
               <div class="card-header">
                 <span class="font-weight-bold"
-                  ><i class="fa fa-folder"></i> ADD NEW CATEGORY</span
+                  ><i class="fa fa-folder"></i> CATEGORIES</span
                 >
               </div>
               <div class="card-body">
-                <form @submit.prevent="storeCategory">
-                  <div class="form-group">
-                    <label>GAMBAR</label>
-                    <input
-                      type="file"
-                      @change="handleFileChange"
-                      class="form-control"
-                    />
-                    <div v-if="validation.image" class="mt-2">
-                      <b-alert show variant="danger">{{
-                        validation.image[0]
-                      }}</b-alert>
+                <div class="form-group">
+                  <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                      <nuxt-link
+                        :to="{ name: 'admin-categories-create' }"
+                        class="btn btn-warning btn-sm"
+                        style="padding-top: 10px"
+                      >
+                        <i class="fa fa-plus-circle"></i> ADD NEW</nuxt-link
+                      >
                     </div>
-                  </div>
-
-                  <div class="form-group">
-                    <label>NAMA CATEGORY</label>
                     <input
                       type="text"
-                      v-model="category.name"
-                      placeholder="Masukkan Nama Category"
                       class="form-control"
+                      v-model="search"
+                      @keypress.enter="searchData"
+                      placeholder="cari berdasarkan nama category"
                     />
-                    <div v-if="validation.name" class="mt-2">
-                      <b-alert show variant="danger">{{
-                        validation.name[0]
-                      }}</b-alert>
+                    <div class="input-group-append">
+                      <button @click="searchData" class="btn btn-warning">
+                        <i class="fa fa-search"></i>SEARCH
+                      </button>
                     </div>
                   </div>
+                </div>
 
-                  <button class="btn btn-info mr-1 btn-submit" type="submit">
-                    <i class="fa fa-paper-plane"></i> SAVE
-                  </button>
-                  <button class="btn btn-warning btn-reset" type="reset">
-                    <i class="fa fa-redo"></i> RESET
-                  </button>
-                </form>
+                <b-table
+                  striped
+                  bordered
+                  hover
+                  :items="categories.data"
+                  :fields="fields"
+                  show-empty
+                >
+                  <template v-slot:cell(image)="data">
+                    <img class="img-fluid" width="50" :src="data.item.image" />
+                  </template>
+                </b-table>
+
+                <!-- pagination -->
+                <b-pagination
+                  align="right"
+                  :value="categories.current_page"
+                  :total-rows="categories.total"
+                  :per-page="categories.per_page"
+                  @change="changePage"
+                  aria-controls="my-table"
+                ></b-pagination>
               </div>
             </div>
           </div>
@@ -67,7 +78,6 @@ export default {
     };
   },
 
-  //data function
   data() {
     return {
       fields: [
@@ -81,8 +91,9 @@ export default {
           key: "name",
         },
         {
-          label: "Action",
-          key: "action",
+          label: "Actions",
+          key: "actions",
+          tdClass: "text-center",
         },
       ],
       search: "",
@@ -94,25 +105,31 @@ export default {
   },
 
   computed: {
+    //memanggil data categories yang berada di /store/admin/category -> categories
+    //lalu mengirimnya di
+    // <b-table striped bordered hover :items="categories.data" :fields="fields" show-empty>
     categories() {
-      //memanggil data categories yang berada di /store/admin/category -> categories
       return this.$store.state.admin.category.categories;
-      //lalu mengirimnya di
-      // <b-table striped bordered hover :items="categories.data" :fields="fields" show-empty>
     },
   },
   methods: {
     //method untuk fungsi btn
     //<button  @click="searchData" class="btn btn-warning"><i class="fa fa-search"></i>SEARCH</button>
     searchData() {
+      //commit to mutation "SET_PAGE"
       this.$store.commit("admin/category/SET_PAGE", 1);
+
+      //dispatch on action "getCategoriesData"
       this.$store.dispatch("admin/category/getCategoriesData", this.search);
     },
 
     //method pagination
     //<b-pagination align="right" :value="categories.current_page" :total-rows="categories.total" :per-page="categories.per_page" @change="changePage" aria-controls="my-table"></b-pagination>
-    changePage() {
+    changePage(page) {
+      //commit to mutation "SET_PAGE"
       this.$store.commit("admin/category/SET_PAGE", page);
+
+      //dispatch on action "getCategoriesData"
       this.$store.dispatch("admin/category/getCategoriesData", this.search);
     },
   },
