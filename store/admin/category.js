@@ -96,4 +96,16 @@ export const actions = {
         });
     });
   },
+
+  destroyCategory({dispatch, commit}, payload) {
+    return new Promise((resolve, reject) => {
+      //ke url delet category
+      this.$axios.delete(`/api/admin/categories/${payload}`)
+
+      .then(() => {
+        dispatch('getCategoriesData')
+        resolve()
+      })
+    })
+  },
 };

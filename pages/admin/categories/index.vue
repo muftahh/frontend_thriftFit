@@ -59,6 +59,7 @@
                     >
                       EDIT
                     </b-button>
+                    <b-button variant="danger" size="sm" @click="destroyCategory(row.item.id)">DELETE</b-button>
                   </template>
                 </b-table>
 
@@ -144,6 +145,38 @@ export default {
       //dispatch on action "getCategoriesData"
       this.$store.dispatch("admin/category/getCategoriesData", this.search);
     },
+
+    destroyCategory(id) {
+      this.$swal.fire({
+        title: 'APAKAH ANDA YAKIN?',
+        text: "Ingin Menghapus Data Ini",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#d33',
+        cancelButtonColor: '#3085d6',
+        confirmButtonText: 'Ya, Hapus',
+        cancelButtonText: 'Tidak',
+      }).then((result) => {
+        if(result.isConfirmed) {
+
+          this.$store.dispatch('admin/category/destroyCategory', id)
+          .then(() => {
+            
+  
+            //refresh data
+            this.$nuxt.refresh()
+  
+            this.$swal.fire({
+              title: 'Berhasil',
+              text: "Data Berhasil Dihapus",
+              icon: 'success',
+              showConfirmButton: false,
+              timer: 2000,    
+            })
+          })
+        }
+      })
+    }
   },
 };
 </script>
