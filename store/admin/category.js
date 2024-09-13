@@ -3,6 +3,7 @@
 export const state = () => ({
   categories: [],
   page: 1,
+  category: {}, //untuk menampung data category detail
 });
 
 //mutations
@@ -14,6 +15,10 @@ export const mutations = {
 
   SET_PAGE(state, payload) {
     state.page = payload;
+  },
+
+  SET_CATEGORY_DATA(state, payload) {
+    state.category = payload;
   },
 };
 
@@ -47,6 +52,44 @@ export const actions = {
           dispatch("getCategoriesData");
           resolve();
         })
+        //error
+        .catch((error) => {
+          reject(error);
+        });
+    });
+  },
+
+  getDetailCategory({ commit }, payload) {
+    return new Promise((resolve, reject) => {
+      this.$axios
+        .get(`/api/admin/categories/${payload}`)
+
+        //success
+        .then((response) => {
+          commit("SET_CATEGORY_DATA", response.data.data);
+
+          //resolve promise
+          resolve();
+        });
+    });
+  },
+
+  updateCategory({ dispatch, commit }, { categoryId, payload }) {
+    //set promise
+    return new Promise((resolve, reject) => {
+      //store to Rest API "/api/admin/categories/:id" with method "POST"
+      this.$axios
+        .post(`/api/admin/categories/${categoryId}`, payload)
+
+        //success
+        .then(() => {
+          //dispatch action "getCategoriesData"
+          dispatch("getCategoriesData");
+
+          //resolve promise
+          resolve();
+        })
+
         //error
         .catch((error) => {
           reject(error);
