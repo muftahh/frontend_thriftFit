@@ -29,14 +29,11 @@
     </li>
 
     <li class="c-sidebar-nav-item">
-      <a href="#" class="c-sidebar-nav-link">
-        <svg class="c-sidebar-nav-icon">
-          <use
-            xlink:href="@/node_modules/@coreui/icons/sprites/free.svg#cil-layers"
-          ></use>
-        </svg>
-        Products</a
-      >
+        <nuxt-link :to="{name: 'admin-products'}" class="c-sidebar-nav-link">
+            <svg class="c-sidebar-nav-icon">
+                <use xlink:href="@/node_modules/@coreui/icons/sprites/free.svg#cil-layers"></use>
+            </svg> Products
+        </nuxt-link>
     </li>
 
     <li class="c-sidebar-nav-title">ORDERS</li>
