@@ -108,4 +108,15 @@ export const actions = {
       })
     })
   },
+
+  //fungsi all data untuk ditaplikan pada halaman product
+  getListAllData({commit, state}, payload) {
+    return new Promise((resolve, reject) => {
+      this.$axios.get('/api/web/categories')
+      .then((response) => {
+        commit('SET_CATEGORIES_DATA', response.data.data)
+        resolve()
+      })
+    })
+  }
 };

@@ -34,4 +34,18 @@ export const actions = {
       })
     })
   },
+
+  //store data
+  storeProduct({dispatch, commit}, payload) {
+    return new Promise((resolve, reject) => {
+      this.$axios.post('/api/admin/products', payload)
+      .then(() => {
+        dispatch('getProductsData')
+        resolve()
+      })
+      .catch(error => {
+        reject(error)
+      })
+    }) 
+  },
 }
