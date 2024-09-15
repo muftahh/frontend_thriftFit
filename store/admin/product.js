@@ -82,5 +82,14 @@ export const actions = {
     })
   },
 
+  destroyProduct({dispatch, commit}, payload) {
+    return new Promise((resolve, reject) => {
+      this.$axios.delete(`/api/admin/products/${payload}`)
+      .then(() => {
+        dispatch(getProductsData)
+        resolve()
+      })
+    }) 
+  }
 
 }

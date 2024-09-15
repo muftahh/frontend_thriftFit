@@ -30,6 +30,7 @@
                         <b-button :to="{name: 'admin-products-edit-id', params: {id: row.item.id}}" variant="info" size="sm">
                             EDIT
                         </b-button>
+                        <b-button variant="danger" size="sm" @click="destroyProduct(row.item.id)">DELETE</b-button>
                     </template>
                 </b-table>
                 
@@ -105,7 +106,37 @@ export default {
     changePage(page) {
       this.$store.commit('admin/product/SET_PAGE', page)
       this.$store.dispatch('admin/product/getProductsData', this.search)
+    },
+
+    // <b-button variant="danger" size="sm" @click="destroyProduct(row.item.id)">DELETE</b-button>
+    destroyProduct(id) {
+      this.$swal.fire({
+        title: 'APAKAH ANDA YAKIN!?',
+        text: "Ingin Menghapus Data Ini",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#d33',
+        cancelButtonColor: '#3085d6',
+        confirmButtonText: 'YA, HAPUS!',
+        cancelButtonText: 'TIDAK'
+      }).then((result) => {
+        if(result.isConfirmed) {
+          this.$store.dispatch('admin/product/destroyProduct', id)
+          .then(() => {
+            //refresh data
+            this.$nuxt.refresh()
+            this.$swal.fire({
+              title: 'Berhasil',
+              text: "Data Berhasil Dihapus",
+              icon: 'success',
+              showConfirmButton: false,
+              timer: 2000,    
+            })
+          })
+        }
+      })
     }
+
   }
 }
 </script>
