@@ -60,7 +60,7 @@ export default {
       },
       {
         label: 'Joined',
-        key: 'create_at'
+        key: 'created_at'
       }
       ],
 
