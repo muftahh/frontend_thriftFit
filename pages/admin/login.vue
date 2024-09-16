@@ -1,13 +1,13 @@
 <template>
   <div class="fade-in">
     <div class="text-center mb-4">
-      <nuxt-link to="/" class="text-black">
+      <nuxt-link to="/" class="text-black custom-title-login">
         <img src="/images/logo.png" width="50" />
-        <h3 class="mt-2 font-weight-bold">Thrift Fit</h3>
+        <h3 class="mt-2 font-weight-bold" >Thrift Fit</h3>
       </nuxt-link>
     </div>
     <div class="card-group">
-      <div class="card border-0 shadow-sm rounded">
+      <div class="card border-0 shadow-lg rounded" style="padding-top: 10px;">
         <div class="card-body">
           <h1>Login</h1>
           <p class="text-muted">Sign In to your account</p>
@@ -54,7 +54,7 @@
             <div class="row">
               <div class="col-12">
                 <button
-                  class="btn btn-primary shadow-sm rounded-sm px-4 w-100"
+                  class="btn custom-btn-clr shadow-sm rounded-sm px-4 w-100"
                   type="submit"
                 >
                   LOGIN
@@ -121,4 +121,17 @@ export default {
 };
 </script>
 
-<style></style>
+<style>
+.custom-btn-clr {
+  background-color: rgb(33, 38, 49);
+  color: white;
+}
+.custom-btn-clr:hover {
+  background-color: #7d818b;
+  color: #ffffff;
+}
+.custom-title-login:hover{
+  text-decoration:none;
+  color: rgb(33, 38, 49);
+}
+</style>

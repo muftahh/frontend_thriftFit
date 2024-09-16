@@ -4,13 +4,13 @@
       <div class="fade-in">
         <div class="row">
           <div class="col-md-12">
-            <div class="card border-0 rounded shadow-sm border-top-orange">
+            <div class="card border-0 rounded shadow-lg " style="padding-top: 10px;">
               <div class="card-header">
                 <span class="font-weight-bold"><i class="fa fa-laptop"></i> SLIDERS</span>
               </div>
               <div class="card-body">
 
-                <nuxt-link :to="{name: 'admin-sliders-create'}" class="btn btn-warning btn-sm mb-3 p-2">
+                <nuxt-link :to="{name: 'admin-sliders-create'}" class="btn custom-btn-clr btn-sm mb-3 p-2">
                     <i class="fa fa-plus-circle"></i> ADD NEW</nuxt-link>
 
                 <b-table striped bordered hover :items="sliders.data" :fields="fields" show-empty>
@@ -24,7 +24,7 @@
 
                 <!-- pagination -->
                 <b-pagination align="right" :value="sliders.current_page" :total-rows="sliders.total"
-                  :per-page="sliders.per_page" @change="changePage" aria-controls="my-table"></b-pagination>
+                  :per-page="sliders.per_page" @change="changePage" class="custom-pagination" aria-controls="my-table"></b-pagination>
 
               </div>
             </div>
@@ -112,5 +112,16 @@ export default {
 </script>
 
 <style>
-
+.custom-btn-clr {
+  background-color: #7d818b;
+  color: white;
+}
+.custom-pagination .page-item .page-link {
+  background-color: white; 
+  color: black; 
+}
+.custom-pagination .page-item.active .page-link {
+  background-color: #7d818b; /* Warna background untuk page aktif */
+  color: white;
+}
 </style>

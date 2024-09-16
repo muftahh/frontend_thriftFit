@@ -24,6 +24,6 @@ body {
   font-size: 1rem;
 }
 .c-app {
-  background-color: #f3f4f7 !important;
+  background-color: #d8dce4 !important;
 }
 </style>

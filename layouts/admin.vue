@@ -5,12 +5,7 @@
       id="sidebar"
     >
       <div class="c-sidebar-brand d-lg-down-none bgtempt">
-        <img
-          src="/images/xiaomi.png"
-          class="bg-light rounded shadow-sm p-2"
-          width="35"
-        />
-        <span class="ml-2 font-weight-bold">Thrift Fit</span>
+        <span class="font-weight-bold custom-font">Thrift Fit</span>
       </div>
 
       <!-- sidebar -->
@@ -27,11 +22,8 @@
         <Nuxt />
         <!-- end content -->
 
-        <footer class="c-footer">
-          <div><strong>MI STORE</strong> &copy; 2021 - SantriKoding.com.</div>
-          <div class="ml-auto">
-            Template by&nbsp;<a href="https://coreui.io/">CoreUI</a>
-          </div>
+        <footer class="c-footer footer-custom-color">
+          <div class="ml-auto" style="padding-right: 20px;"><strong>Thrift-Fit</strong> &copy; 2024 - by <i>ctrlss</i> </div>
         </footer>
       </div>
     </div>
@@ -57,5 +49,12 @@ export default {
 <style scoped>
 .bgtempt {
   background: rgb(33, 38, 49);
+}
+.footer-custom-color {
+  background-color: #d8dce4 !important;
+}
+
+.custom-font {
+  font-size: x-large;
 }
 </style>

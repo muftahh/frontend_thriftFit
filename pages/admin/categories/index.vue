@@ -4,7 +4,7 @@
       <div class="fade-in">
         <div class="row">
           <div class="col-md-12">
-            <div class="card border-0 rounded shadow-sm border-top-orange">
+            <div class="card border-0 rounded shadow-lg " style="padding-top: 10px;">
               <div class="card-header">
                 <span class="font-weight-bold"
                   ><i class="fa fa-folder"></i> CATEGORIES</span
@@ -16,7 +16,7 @@
                     <div class="input-group-prepend">
                       <nuxt-link
                         :to="{ name: 'admin-categories-create' }"
-                        class="btn btn-warning btn-sm"
+                        class="btn btn-sm custom-btn-clr"
                         style="padding-top: 10px"
                       >
                         <i class="fa fa-plus-circle"></i> ADD NEW</nuxt-link
@@ -30,7 +30,7 @@
                       placeholder="cari berdasarkan nama category"
                     />
                     <div class="input-group-append">
-                      <button @click="searchData" class="btn btn-warning">
+                      <button @click="searchData" class="btn custom-btn-clr">
                         <i class="fa fa-search"></i>SEARCH
                       </button>
                     </div>
@@ -70,6 +70,7 @@
                   :total-rows="categories.total"
                   :per-page="categories.per_page"
                   @change="changePage"
+                  class="custom-pagination"
                   aria-controls="my-table"
                 ></b-pagination>
               </div>
@@ -181,4 +182,17 @@ export default {
 };
 </script>
 
-<style></style>
+<style>
+.custom-btn-clr {
+  background-color: #7d818b;
+  color: white;
+}
+.custom-pagination .page-item .page-link {
+  background-color: white; 
+  color: black; 
+}
+.custom-pagination .page-item.active .page-link {
+  background-color: #7d818b; /* Warna background untuk page aktif */
+  color: white;
+}
+</style>

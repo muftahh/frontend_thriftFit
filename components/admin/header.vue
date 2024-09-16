@@ -37,12 +37,11 @@
           aria-haspopup="true"
           aria-expanded="false"
         >
-          <div class="c-avatar">
-            <img
-              class="c-avatar-img"
-              :src="`https://ui-avatars.com/api/?name=${user.name}&amp;background=4e73df&amp;color=ffffff&amp;size=100`"
-            />
-          </div>
+          <template>
+            <div>
+              <b-avatar variant="dark"></b-avatar>
+            </div>
+          </template>
         </a>
         <div class="dropdown-menu dropdown-menu-right pt-0">
           <div class="dropdown-header bg-light py-2 rounded">
@@ -122,4 +121,18 @@ export default {
 };
 </script>
 
-<style></style>
+<style>
+.c-header {
+  background-color: #d8dce4 !important;
+}
+
+/* Custom hover color for Quick Menu items */
+.dropdown-menu .dropdown-item:hover {
+  background-color: #7d818b; /* Ganti warna hover */
+  color: black; /* Ganti warna teks */
+}
+
+.dropdown-menu .dropdown-item:hover svg {
+  fill: white; /* Ganti warna ikon */
+}
+</style>

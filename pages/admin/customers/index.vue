@@ -4,7 +4,7 @@
       <div class="fade-in">
         <div class="row">
           <div class="col-md-12">
-            <div class="card border-0 rounded shadow-sm border-top-orange">
+            <div class="card border-0 rounded shadow-lg " style="padding-top: 10px;">
               <div class="card-header">
                 <span class="font-weight-bold"><i class="fa fa-user"></i> CUSTOMERS</span>
               </div>
@@ -14,7 +14,7 @@
                   <div class="input-group mb-3">
                     <input type="text" class="form-control" v-model="search" @keypress.enter="searchData" placeholder="cari berdasarkan nama customer">
                     <div class="input-group-append">
-                      <button @click="searchData" class="btn btn-warning"><i class="fa fa-search"></i>
+                      <button @click="searchData" class="btn custom-btn-clr"><i class="fa fa-search"></i>
                         SEARCH
                       </button>
                     </div>
@@ -26,7 +26,7 @@
 
                 <!-- pagination -->
                 <b-pagination align="right" :value="customers.current_page" :total-rows="customers.total"
-                  :per-page="customers.per_page" @change="changePage" aria-controls="my-table"></b-pagination>
+                  :per-page="customers.per_page" @change="changePage" class="custom-pagination" aria-controls="my-table"></b-pagination>
 
               </div>
             </div>
@@ -93,5 +93,16 @@ export default {
 </script>
 
 <style>
-
+.custom-btn-clr {
+  background-color: #7d818b;
+  color: white;
+}
+.custom-pagination .page-item .page-link {
+  background-color: white; 
+  color: black; 
+}
+.custom-pagination .page-item.active .page-link {
+  background-color: #7d818b; /* Warna background untuk page aktif */
+  color: white;
+}
 </style>
