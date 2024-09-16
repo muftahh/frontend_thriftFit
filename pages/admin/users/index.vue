@@ -33,6 +33,7 @@
                       <b-button :to="{name: 'admin-users-edit-id', params: {id: row.item.id}}" variant="info" size="sm">
                           EDIT
                       </b-button>
+                      <b-button variant="danger" size="sm" @click="destroyUser(row.item.id)">DELETE</b-button>
                   </template>
                 </b-table>
 
@@ -100,6 +101,35 @@ export default {
     changePage(page) {
       this.$store.commit('admin/user/SET_PAGE', page)
       this.$store.dispatch('admin/user/getUsersData', this.search)
+    },
+
+    destroyUser(id) {
+      this.$swal.fire({
+        title: 'APAKAH ANDA YAKIN!?',
+        text: "Ingin Menghapus Data Ini",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#d33',
+        cancelButtonColor: '#3085d6',
+        confirmButtonText: 'Ya, Hapus',
+        cancelButtonText: 'Tidak'
+      })
+      .then((result) => {
+        if (result.isConfirmed) {
+          this.$store.dispatch('admin/user/destroyUser', id)
+          .then(() => {
+            this.$nuxt.refresh()
+
+            this.$swal.fire({
+              title: 'BERHASIL!',
+              text: "Data Berhasil Dihapus",
+              icon: 'success',
+              showConfirmButton: false,
+              timer: 2000
+            })
+          })
+        }
+      })
     }
   }
 }

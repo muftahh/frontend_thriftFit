@@ -68,4 +68,14 @@ export const actions = {
       })
     })
   },
+
+  destroyUser({dispatch, commit}, payload) {
+    return new Promise((resolve, reject) => {
+      this.$axios.delete(`/api/admin/users/${payload}`)
+      .then(() => {
+        dispatch('getUsersData')
+        resolve()
+      })
+    }) 
+  }
 }
