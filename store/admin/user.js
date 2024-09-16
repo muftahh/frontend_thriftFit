@@ -26,4 +26,17 @@ export const actions = {
       })
     })
   },
+
+  storeUser({dispatch, commit}, payload) {
+    return new Promise((resolve, reject) => {
+      this.$axios.post('/api/admin/users', payload)
+      .then(() => {
+        dispatch('getUsersData')
+        resolve()
+      })
+      .catch(error => {
+        reject(error)
+      })
+    })
+  }
 }
