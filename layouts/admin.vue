@@ -68,7 +68,7 @@ export default {
   background: #152259;
 }
 .footer-custom-color {
-  background-color: #d8dce4 !important;
+  background-color: #d8dce4;
 }
 
 .custom-font {

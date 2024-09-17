@@ -4,7 +4,7 @@
       <div class="fade-in">
         <div class="row">
           <div class="col-md-12">
-            <div class="card border-0 rounded shadow-lg " style="padding-top: 10px;">
+            <div class="card rounded shadow-lg " style="padding: 10px 20px;">
               <div class="card-header">
                 <span class="font-weight-bold"><i class="fa fa-users"></i> ADD NEW USER</span>
               </div>
@@ -54,9 +54,9 @@
                     </div>
                   </div>
 
-                  <button class="btn btn-info mr-1 btn-submit" type="submit"><i class="fa fa-paper-plane"></i>
+                  <button class="btn btn-outline-success mr-1 btn-submit" type="submit"><i class="fa fa-paper-plane"></i>
                     SAVE</button>
-                  <button class="btn btn-warning btn-reset" type="reset"><i class="fa fa-redo"></i>
+                  <button class="btn btn-outline-danger btn-reset" type="reset"><i class="fa fa-redo"></i>
                     RESET</button>
 
                 </form>

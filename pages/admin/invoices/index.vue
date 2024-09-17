@@ -4,7 +4,7 @@
       <div class="fade-in">
         <div class="row">
           <div class="col-md-12">
-            <div class="card border-0 rounded shadow-lg " style="padding-top: 10px;">
+            <div class="card border-0 rounded shadow-lg " style="padding: 10px 20px;">
               <div class="card-header">
                 <span class="font-weight-bold"><i class="fa fa-shopping-cart"></i> INVOICES</span>
               </div>
@@ -21,7 +21,7 @@
                     </div>
                 </div>
 
-                <b-table striped bordered hover :items="invoices.data" :fields="fields" show-empty>
+                <b-table striped borderless hover :items="invoices.data" :fields="fields" show-empty style="margin: 18px 0px;">
                   <template v-slot:cell(grand_total)="row">
                     Rp. {{ formatPrice(row.item.grand_total) }}
                   </template>
@@ -32,14 +32,14 @@
                     <button v-if="row.item.statur == 'failed'" class="btn btn-sm btn-danger"><i class="fa fa-times-circle"></i> {{ row.item.statur }}</button>
                   </template>
                   <template v-slot:cell(actions)="row">
-                      <b-button :to="{name: 'admin-invoices-show-id', params: {id: row.item.id}}" variant="info" size="sm">
+                      <b-button :to="{name: 'admin-invoices-show-id', params: {id: row.item.id}}" variant="outline-success" size="sm">
                           DETAIL
                       </b-button>
                   </template>
                 </b-table>
 
                 <!-- pagination -->
-                <b-pagination align="right" :value="invoices.current_page" :total-rows="invoices.total"
+                <b-pagination align="right" pills :value="invoices.current_page" :total-rows="invoices.total"
                   :per-page="invoices.per_page" @change="changePage" class="custom-pagination" aria-controls="my-table"></b-pagination>
               </div>
             </div>
@@ -79,12 +79,12 @@ export default {
         {
           label: 'Status Payment',
           key: 'statur',
-          tdClass: 'text-center'
         },
         {
           label: 'Actions',
           key: 'actions',
-          tdClass: 'text-center'
+          thClass: 'text-right',
+          tdClass: 'text-right'
         }
       ],
 
@@ -118,17 +118,19 @@ export default {
 
 </script>
 
-<style>
+<style scoped>
 .custom-btn-clr {
-  background-color: #7d818b;
+  background-color: #509CDB;
   color: white;
+  border-radius: 8px;
 }
-.custom-pagination .page-item .page-link {
-  background-color: white; 
-  color: black; 
+.custom-btn-clr:hover {
+  background-color: #152259;
+  color: white;
 }
 .custom-pagination .page-item.active .page-link {
-  background-color: #7d818b; /* Warna background untuk page aktif */
+  background-color: #509CDB; 
   color: white;
+  border: none;
 }
 </style>

@@ -97,7 +97,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 .custom-btn-clr {
   background-color: rgb(33, 38, 49);
   color: white;

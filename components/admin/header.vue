@@ -121,18 +121,18 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .c-header {
   background-color: #d8dce4 !important;
 }
 
-/* Custom hover color for Quick Menu items */
+
 .dropdown-menu .dropdown-item:hover {
-  background-color: #7d818b; /* Ganti warna hover */
-  color: black; /* Ganti warna teks */
+  background-color: #509CDB; 
+  color: white; 
 }
 
 .dropdown-menu .dropdown-item:hover svg {
-  fill: white; /* Ganti warna ikon */
+  fill: white; 
 }
 </style>

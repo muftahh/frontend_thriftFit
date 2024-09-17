@@ -4,7 +4,7 @@
       <div class="fade-in">
         <div class="row">
           <div class="col-md-12">
-            <div class="card border-0 rounded shadow-lg " style="padding: 10px 20px;">
+            <div class="card rounded shadow-lg " style="padding: 10px 20px;">
               <div class="card-header">
                 <span class="font-weight-bold"
                   ><i class="fa fa-folder"></i> CATEGORIES</span
@@ -131,6 +131,7 @@ export default {
     },
   },
   methods: {
+    
     //method untuk fungsi btn
     //<button  @click="searchData" class="btn btn-warning"><i class="fa fa-search"></i>SEARCH</button>
     searchData() {
@@ -186,7 +187,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .custom-btn-clr {
   background-color: #509CDB;
   color: white;
