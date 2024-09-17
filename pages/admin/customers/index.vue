@@ -12,7 +12,7 @@
 
                 <div class="form-group" style="margin: 18px 0px;">
                   <div class="input-group mb-3">
-                    <input type="text" class="form-control" v-model="search" @keypress.enter="searchData" placeholder="cari berdasarkan nama customer">
+                    <input type="text" class="form-control shadow-none border-top-0 border-left-0 border-right-0" style="margin: 0px 8px; background-color: transparent;" v-model="search" @keypress.enter="searchData" placeholder="cari berdasarkan nama customer">
                     <div class="input-group-append">
                       <button @click="searchData" class="btn custom-btn-clr"><i class="fa fa-search"></i>
                         SEARCH

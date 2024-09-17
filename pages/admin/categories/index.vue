@@ -13,11 +13,11 @@
               <div class="card-body">
                 <div class="form-group" style="margin-bottom: 10px;">
                   <div class="input-group mb-3">
-                    <div class="input-group-prepend">
+
+                    <div class="input-group-prepend" style="padding-top: 10px">
                       <nuxt-link
                         :to="{ name: 'admin-categories-create' }"
-                        class="btn btn-sm custom-btn-clr"
-                        style="padding-top: 10px "
+                        class="btn btn-sm custom-btn-clr" style="padding-top: 10px;"
                       >
                         <i class="fa fa-plus-circle"></i> ADD NEW</nuxt-link
                       >
@@ -25,11 +25,11 @@
 
                     <input
                       type="text"
-                      class="form-control"
+                      class="form-control shadow-none border-top-0 border-left-0 border-right-0"
+                      style="margin: 0px 8px; background-color: transparent;"
                       v-model="search"
                       @keypress.enter="searchData"
                       placeholder="cari berdasarkan nama category"
-                      style="margin: 0px 8px; border: none; background-color: transparent;"
                     />
 
                     <div class="input-group-append">

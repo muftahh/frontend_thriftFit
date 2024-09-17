@@ -121,14 +121,15 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .custom-btn-clr {
-  background-color: rgb(33, 38, 49);
+  background-color: #509CDB;
   color: white;
+  border-radius: 8px;
 }
 .custom-btn-clr:hover {
-  background-color: #7d818b;
-  color: #ffffff;
+  background-color: #152259;
+  color: white;
 }
 .custom-title-login:hover{
   text-decoration:none;

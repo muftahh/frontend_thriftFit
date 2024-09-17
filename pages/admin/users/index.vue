@@ -16,7 +16,8 @@
                             <nuxt-link :to="{name: 'admin-users-create'}" class="btn custom-btn-clr btn-sm" style="padding-top: 10px;">
                             <i class="fa fa-plus-circle"></i> ADD NEW</nuxt-link>
                         </div>
-                        <input type="text" class="form-control" v-model="search" @keypress.enter="searchData" placeholder="cari berdasarkan nama user">
+                        <input type="text" class="form-control shadow-none border-top-0 border-left-0 border-right-0"
+                        style="margin: 0px 8px; background-color: transparent;" v-model="search" @keypress.enter="searchData" placeholder="cari berdasarkan nama user">
                         <div class="input-group-append">
                             <button @click="searchData" class="btn custom-btn-clr"><i class="fa fa-search"></i>
                             SEARCH
