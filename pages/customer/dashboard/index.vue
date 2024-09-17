@@ -8,9 +8,9 @@
         <!-- end sidebar -->
       </div>
       <div class="col-md-9">
-        <div class="card border-0 rounded shadow-sm ">
+        <div class="card border-0 rounded shadow-sm " style="padding: 10px 20px;">
           <div class="card-body">
-            <h5><i class="fa fa-tachometer-alt"></i> DASHBOARD</h5>
+            <h5><i class="fa fa-tachometer-alt"></i><Strong>DASHBOARD</Strong></h5>
             <hr>
 
             <div class="row">
@@ -24,12 +24,14 @@
             <div class="row">
 
               <div class="col-6 col-lg-3">
-                <div class="card rounded shadow-sm overflow-hidden">
-                  <div class="card-body p-0 d-flex align-items-center">
-                    <div class="bg-primary py-4 px-5 mfe-3">
-                      <i class="fas fa-circle-notch fa-spin fa-2x"></i>
+                <div class="card rounded shadow-sm overflow-hidden custom-height">
+                  <div class="card-body customcard-body p-0 d-flex align-items-center">
+                    <div class="custom-icon-container">
+                      <svg class="icon-svg">
+                        <use xlink:href="@/node_modules/@coreui/icons/sprites/free.svg#cil-clock"></use>
+                      </svg>
                     </div>
-                    <div>
+                    <div class="text-container">
                       <div class="text-value text-primary">{{ pending }}</div>
                       <div class="text-muted text-uppercase font-weight-bold small">PENDING</div>
                     </div>
@@ -38,13 +40,15 @@
               </div>
 
               <div class="col-6 col-lg-3">
-                <div class="card rounded shadow-sm overflow-hidden">
-                  <div class="card-body p-0 d-flex align-items-center">
-                    <div class="bg-success py-4 px-5 mfe-3">
-                      <i class="fas fa-check-circle fa-2x"></i>
+                <div class="card rounded shadow-sm overflow-hidden custom-height">
+                  <div class="card-body customcard-body p-0 d-flex align-items-center">
+                    <div class="custom-icon-container">
+                      <svg class="icon-svg">
+                        <use xlink:href="@/node_modules/@coreui/icons/sprites/free.svg#cil-check-circle"></use>
+                      </svg>
                     </div>
-                    <div>
-                      <div class="text-value text-success">{{ success }}</div>
+                    <div class="text-container">
+                      <div class="text-value text-primary">{{ success }}</div>
                       <div class="text-muted text-uppercase font-weight-bold small">SUCCESS</div>
                     </div>
                   </div>
@@ -52,13 +56,15 @@
               </div>
 
               <div class="col-6 col-lg-3">
-                <div class="card rounded shadow-sm overflow-hidden">
-                  <div class="card-body p-0 d-flex align-items-center">
-                    <div class="bg-warning py-4 px-5 mfe-3">
-                      <i class="fas fa-exclamation-triangle fa-2x"></i>
+                <div class="card rounded shadow-sm overflow-hidden custom-height">
+                  <div class="card-body customcard-body p-0 d-flex align-items-center">
+                    <div class="custom-icon-container">
+                      <svg class="icon-svg">
+                        <use xlink:href="@/node_modules/@coreui/icons/sprites/free.svg#cil-sync"></use>
+                      </svg>
                     </div>
-                    <div>
-                      <div class="text-value text-warning">{{ expired }}</div>
+                    <div class="text-container">
+                      <div class="text-value text-primary">{{ expired }}</div>
                       <div class="text-muted text-uppercase font-weight-bold small">EXPIRED</div>
                     </div>
                   </div>
@@ -66,13 +72,15 @@
               </div>
 
               <div class="col-6 col-lg-3">
-                <div class="card rounded shadow-sm overflow-hidden">
-                  <div class="card-body p-0 d-flex align-items-center">
-                    <div class="bg-danger py-4 px-5 mfe-3">
-                      <i class="fas fa-times-circle fa-2x"></i>
+                <div class="card rounded shadow-sm overflow-hidden custom-height">
+                  <div class="card-body customcard-body p-0 d-flex align-items-center">
+                    <div class="custom-icon-container">
+                      <svg class="icon-svg">
+                        <use xlink:href="@/node_modules/@coreui/icons/sprites/free.svg#cil-x-circle"></use>
+                      </svg>
                     </div>
-                    <div>
-                      <div class="text-value text-danger">{{ failed }}</div>
+                    <div class="text-container">
+                      <div class="text-value text-primary">{{ failed }}</div>
                       <div class="text-muted text-uppercase font-weight-bold small">FAILED</div>
                     </div>
                   </div>
@@ -121,6 +129,27 @@
   }
 </script>
 
-<style>
-
+<style scoped>
+.custom-height {
+    height: 90px;
+}
+.custom-icon-container {
+  display: flex;
+  align-items: center;
+  border-radius: 0.25rem;
+  padding: 0 10px; 
+}
+.icon-svg {
+  width: 65px; 
+  height: 45px;
+}
+.text-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.customcard-body {
+  display: flex;
+  align-items: center;
+}
 </style>

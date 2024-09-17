@@ -1,20 +1,19 @@
 <template>
-  <div class="card border-0 rounded shadow-lg">
+  <div class="card border-0 rounded shadow-lg" style="padding: 10px 7px;">
     <div class="card-body">
       <h5>MAIN MENU</h5>
       <hr>
       <ul class="list-group">
         <nuxt-link :to="{name: 'customer-dashboard'}"
-          class="list-group-item text-decoration-none text-dark text-uppercase"><i
-            class="fa fa-tachometer-alt"></i> Dashboard
+          class="list-group-item text-decoration-none text-dark text-uppercase"> Dashboard
         </nuxt-link>
 
-        <a href="#" class="list-group-item text-decoration-none text-dark text-uppercase"><i
-            class="fa fa-shopping-cart"></i> My Orders
-        </a>
+        <nuxt-link :to="{name: 'customer-invoices'}" class="list-group-item text-decoration-none text-dark text-uppercase">
+           My Orders
+        </nuxt-link>
 
         <a @click="logout" class="list-group-item text-decoration-none text-dark text-uppercase"
-          style="cursor: pointer;"><i class="fa fa-sign-out-alt"></i> Logout
+          style="cursor: pointer;"> Logout
         </a>
       </ul>
     </div>

@@ -99,14 +99,14 @@ export default {
 
 <style scoped>
 .custom-btn-clr {
-  background-color: rgb(33, 38, 49);
+  background-color: #152259;
   color: white;
 }
 .custom-btn-clr:hover {
-  background-color: #7d818b;
+  background-color: rgb(80, 156, 189);
   color: #ffffff;
 }
 .text-bottom:hover {
-  color: rgb(33, 38, 49);
+  color: rgb(80, 156, 189);
 }
 </style>

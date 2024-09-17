@@ -1,5 +1,5 @@
 <template>
-  <footer class="pt-5" style="background: rgb(255, 255, 255); border-top: 5px solid rgb(33, 38, 49);">
+  <footer class="pt-5" style="background: rgb(255, 255, 255); border-top: 5px solid #152259;">
     <div class="container-fluid">
       <div class="row">
         <div class="col-md-5 mb-4">
@@ -75,6 +75,6 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 
 </style>

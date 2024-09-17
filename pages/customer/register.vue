@@ -146,6 +146,6 @@ export default {
 
 <style>
 .text-bottom:hover {
-  color: rgb(33, 38, 49);
+  color: rgb(80, 156, 189);
 }
 </style>
