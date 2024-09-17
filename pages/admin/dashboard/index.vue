@@ -4,12 +4,14 @@
       <div class="fade-in">
         <div class="row">
           <div class="col-6 col-lg-3">
-            <div class="card border-9 rounded shadow-lg overflow-hidden custom-height">
+            <div class="card border-9 rounded shadow-lg overflow-hidden custom-height ">
               <div class="card-body p-0 d-flex align-items-center">
-                <div class="bg-primary py-4 px-5 mfe-3 custom-height">
-                  <i class="fas fa-circle-notch fa-spin fa-2x "></i>
+                <div class="custom-icon-container">
+                  <svg class="icon-svg">
+                    <use xlink:href="@/node_modules/@coreui/icons/sprites/free.svg#cil-clock"></use>
+                  </svg>
                 </div>
-                <div>
+                <div class="text-container">
                   <div class="text-value text-primary large">
                     {{ statistic.pending }}
                   </div>
@@ -24,10 +26,12 @@
           <div class="col-6 col-lg-3">
             <div class="card border-9 rounded shadow-lg overflow-hidden custom-height">
               <div class="card-body p-0 d-flex align-items-center">
-                <div class="bg-success py-4 px-5 mfe-3 custom-height">
-                  <i class="fas fa-check-circle fa-2x"></i>
+                <div class="custom-icon-container">
+                  <svg class="icon-svg">
+                    <use xlink:href="@/node_modules/@coreui/icons/sprites/free.svg#cil-check-circle"></use>
+                  </svg>
                 </div>
-                <div>
+                <div class="text-container">
                   <div class="text-value text-success large">
                     {{ statistic.success }}
                   </div>
@@ -42,10 +46,12 @@
           <div class="col-6 col-lg-3">
             <div class="card border-9 rounded shadow-lg overflow-hidden custom-height">
               <div class="card-body p-0 d-flex align-items-center">
-                <div class="bg-warning py-4 px-5 mfe-3 custom-height">
-                  <i class="fas fa-exclamation-triangle fa-2x"></i>
+                <div class="custom-icon-container">
+                  <svg class="icon-svg">
+                    <use xlink:href="@/node_modules/@coreui/icons/sprites/free.svg#cil-sync"></use>
+                  </svg>
                 </div>
-                <div>
+                <div class="text-container">
                   <div class="text-value text-warning large">
                     {{ statistic.expired }}
                   </div>
@@ -60,10 +66,12 @@
           <div class="col-6 col-lg-3">
             <div class="card border-9 rounded shadow-lg overflow-hidden custom-height">
               <div class="card-body p-0 d-flex align-items-center">
-                <div class="bg-danger py-4 px-5 mfe-3 custom-height">
-                  <i class="fas fa-times-circle fa-2x"></i>
+                <div class="custom-icon-container">
+                  <svg class="icon-svg">
+                    <use xlink:href="@/node_modules/@coreui/icons/sprites/free.svg#cil-x-circle"></use>
+                  </svg>
                 </div>
-                <div>
+                <div class="text-container">
                   <div class="text-value text-danger large">
                     {{ statistic.failed }}
                   </div>
@@ -78,7 +86,7 @@
 
         <div class="row">
           <div class="col-md-12">
-            <div class="card border-9 rounded shadow-lg border-top-dark">
+            <div class="card border-9 rounded shadow-lg border-top-dark" style="padding: 15px;">
               <div class="card-header">
                 <span class="font-weight-bold"
                   ><i class="fa fa-chart-bar"></i> GRAFIK PENDAPATAN
@@ -147,5 +155,24 @@ export default {
 <style scoped>
 .custom-height {
     height: 100px;
-  }
+}
+.custom-icon-container {
+  display: flex;
+  align-items: center;
+  border-radius: 0.25rem;
+  padding: 0 10px; 
+}
+.icon-svg {
+  width: 70px; 
+  height: 50px;
+}
+.text-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.card-body {
+  display: flex;
+  align-items: center;
+}
 </style>

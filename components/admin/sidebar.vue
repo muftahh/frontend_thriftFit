@@ -1,18 +1,19 @@
 <template>
   <ul class="c-sidebar-nav">
-    <li class="c-sidebar-nav-item">
+    <li class="c-sidebar-nav-item" style="margin-top: 10px;">
+      <hr style="border-top: 3px solid #ffffff; border-radius: 0.5rem;">
       <nuxt-link
-        :to="{ name: 'admin-dashboard' }"
-        class="c-sidebar-nav-link"
-        href="index.html"
-      >
-        <svg class="c-sidebar-nav-icon">
-          <use
-            xlink:href="@/node_modules/@coreui/icons/sprites/free.svg#cil-speedometer"
-          ></use>
-        </svg>
-        Dashboard</nuxt-link
-      >
+            :to="{ name: 'admin-dashboard' }"
+            class="c-sidebar-nav-link"
+            href="index.html"
+          >
+            <svg class="c-sidebar-nav-icon">
+              <use
+                xlink:href="@/node_modules/@coreui/icons/sprites/free.svg#cil-home"
+              ></use>
+            </svg>
+            Dashboard</nuxt-link
+          >
     </li>
 
     <li class="c-sidebar-nav-title">MASTER DATA</li>
@@ -82,10 +83,22 @@ export default {};
 
 <style scoped>
 a.nuxt-link-active {
-  background: rgba(255, 255, 255, 0.05) !important;
+  background: rgba(80, 156, 189);
 }
 
 .c-sidebar-nav {
-  background: rgb(33, 38, 49);
+  background: #152259;
+  padding: 15px; 
+}
+
+.c-sidebar-nav-link {
+  border-radius: 8px; 
+  padding: 10px 20px;
+  margin-bottom: 10px; 
+  transition: background-color 0.3s ease; 
+}
+
+.c-sidebar-nav-link:hover {
+  background-color: rgba(80, 156, 189, 0.7); 
 }
 </style>

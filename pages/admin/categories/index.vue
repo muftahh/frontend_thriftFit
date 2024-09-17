@@ -4,31 +4,34 @@
       <div class="fade-in">
         <div class="row">
           <div class="col-md-12">
-            <div class="card border-0 rounded shadow-lg " style="padding-top: 10px;">
+            <div class="card border-0 rounded shadow-lg " style="padding: 10px 20px;">
               <div class="card-header">
                 <span class="font-weight-bold"
                   ><i class="fa fa-folder"></i> CATEGORIES</span
                 >
               </div>
               <div class="card-body">
-                <div class="form-group">
+                <div class="form-group" style="margin-bottom: 10px;">
                   <div class="input-group mb-3">
                     <div class="input-group-prepend">
                       <nuxt-link
                         :to="{ name: 'admin-categories-create' }"
                         class="btn btn-sm custom-btn-clr"
-                        style="padding-top: 10px"
+                        style="padding-top: 10px "
                       >
                         <i class="fa fa-plus-circle"></i> ADD NEW</nuxt-link
                       >
                     </div>
+
                     <input
                       type="text"
                       class="form-control"
                       v-model="search"
                       @keypress.enter="searchData"
                       placeholder="cari berdasarkan nama category"
+                      style="margin: 0px 8px; border: none; background-color: transparent;"
                     />
+
                     <div class="input-group-append">
                       <button @click="searchData" class="btn custom-btn-clr">
                         <i class="fa fa-search"></i>SEARCH
@@ -39,7 +42,7 @@
 
                 <b-table
                   striped
-                  bordered
+                  borderless
                   hover
                   :items="categories.data"
                   :fields="fields"
@@ -54,18 +57,19 @@
                         name: 'admin-categories-edit-id',
                         params: { id: row.item.id },
                       }"
-                      variant="info"
+                      variant="outline-success"
                       size="sm"
                     >
                       EDIT
                     </b-button>
-                    <b-button variant="danger" size="sm" @click="destroyCategory(row.item.id)">DELETE</b-button>
+                    <b-button variant="outline-danger" size="sm" @click="destroyCategory(row.item.id)">DELETE</b-button>
                   </template>
                 </b-table>
 
                 <!-- pagination -->
                 <b-pagination
                   align="right"
+                  pills
                   :value="categories.current_page"
                   :total-rows="categories.total"
                   :per-page="categories.per_page"
@@ -98,7 +102,6 @@ export default {
         {
           label: "Image",
           key: "image",
-          tdClass: "text-center",
         },
         {
           label: "Category Name",
@@ -107,7 +110,8 @@ export default {
         {
           label: "Actions",
           key: "actions",
-          tdClass: "text-center",
+          thClass: 'text-right',
+          tdClass: "text-right",
         },
       ],
       search: "",
@@ -184,15 +188,17 @@ export default {
 
 <style>
 .custom-btn-clr {
-  background-color: #7d818b;
+  background-color: #509CDB;
   color: white;
+  border-radius: 8px;
 }
-.custom-pagination .page-item .page-link {
-  background-color: white; 
-  color: black; 
+.custom-btn-clr:hover {
+  background-color: #152259;
+  color: white;
 }
 .custom-pagination .page-item.active .page-link {
-  background-color: #7d818b; /* Warna background untuk page aktif */
+  background-color: #509CDB; 
   color: white;
+  border: none;
 }
 </style>
