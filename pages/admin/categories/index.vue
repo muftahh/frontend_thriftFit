@@ -4,7 +4,7 @@
       <div class="fade-in">
         <div class="row">
           <div class="col-md-12">
-            <div class="card rounded shadow-lg " style="padding: 10px 20px;">
+            <div class="card rounded shadow-lg card-custom-main">
               <div class="card-header">
                 <span class="font-weight-bold"
                   ><i class="fa fa-folder"></i> CATEGORIES</span
@@ -14,7 +14,7 @@
                 <div class="form-group" style="margin-bottom: 10px;">
                   <div class="input-group mb-3">
 
-                    <div class="input-group-prepend" style="padding-top: 10px">
+                    <div class="input-group-prepend">
                       <nuxt-link
                         :to="{ name: 'admin-categories-create' }"
                         class="btn btn-sm custom-btn-clr" style="padding-top: 10px;"
@@ -25,7 +25,7 @@
 
                     <input
                       type="text"
-                      class="form-control shadow-none border-top-0 border-left-0 border-right-0"
+                      class="form-control shadow-none search-input-custom"
                       style="margin: 0px 8px; background-color: transparent;"
                       v-model="search"
                       @keypress.enter="searchData"
@@ -191,18 +191,4 @@ export default {
 /* .c-main {
   font-family: 'Kumbh Sans', sans-serif;
 } */
-.custom-btn-clr {
-  background-color: #509CDB;
-  color: white;
-  border-radius: 8px;
-}
-.custom-btn-clr:hover {
-  background-color: #152259;
-  color: white;
-}
-.custom-pagination .page-item.active .page-link {
-  background-color: #509CDB; 
-  color: white;
-  border: none;
-}
 </style>

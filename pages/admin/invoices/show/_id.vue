@@ -4,7 +4,7 @@
       <div class="fade-in">
         <div class="row">
           <div class="col-md-12">
-            <div class="card border-0 rounded shadow-lg " style="padding: 10px 20px;">
+            <div class="card border-0 rounded shadow-lg card-custom-main">
               <div class="card-header">
                 <span class="font-weight-bold"><i class="fa fa-shopping-cart"></i> DETAIL INVOICE</span>
               </div>

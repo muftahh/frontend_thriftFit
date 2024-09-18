@@ -1,13 +1,13 @@
 <template>
   <div class="fade-in">
     <div class="text-center mb-4">
-      <nuxt-link to="/" class="text-black custom-title-login">
+      <nuxt-link to="/" class="text-black custom-title-login ">
         <img src="/images/logo.png" width="50" />
-        <h3 class="mt-2 font-weight-bold" >Thrift Fit</h3>
+        <h3 class="mt-2 font-weight-bold title-text" >Thrift Fit</h3>
       </nuxt-link>
     </div>
     <div class="card-group">
-      <div class="card border-0 shadow-lg rounded" style="padding-top: 10px;">
+      <div class="card border-0 border-top-custom shadow-lg rounded" style="padding-top: 10px;">
         <div class="card-body">
           <h1>Login</h1>
           <p class="text-muted">Sign In to your account</p>
@@ -22,7 +22,7 @@
                 </span>
               </div>
               <input
-                class="form-control"
+                class="form-control shadow-none search-input-custom"
                 v-model="user.email"
                 :class="{ 'is-invalid': validation.email }"
                 type="email"
@@ -39,7 +39,7 @@
                 </span>
               </div>
               <input
-                class="form-control"
+                class="form-control shadow-none search-input-custom"
                 v-model="user.password"
                 :class="{ 'is-invalid': validation.password }"
                 type="password"
@@ -122,15 +122,10 @@ export default {
 </script>
 
 <style scoped>
-.custom-btn-clr {
-  background-color: #509CDB;
-  color: white;
-  border-radius: 8px;
+.title-text:hover{
+  color: #509CDB;
 }
-.custom-btn-clr:hover {
-  background-color: #152259;
-  color: white;
-}
+
 .custom-title-login:hover{
   text-decoration:none;
   color: rgb(33, 38, 49);

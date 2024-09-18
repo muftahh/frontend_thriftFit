@@ -4,7 +4,7 @@
       <div class="fade-in">
         <div class="row">
           <div class="col-md-12">
-            <div class="card rounded shadow-lg " style="padding: 10px 20px;">
+            <div class="card rounded shadow-lg card-custom-main">
               <div class="card-header">
                 <span class="font-weight-bold"><i class="fa fa-laptop"></i> SLIDERS</span>
               </div>
@@ -113,18 +113,4 @@ export default {
 </script>
 
 <style scoped>
-.custom-btn-clr {
-  background-color: #509CDB;
-  color: white;
-  border-radius: 8px;
-}
-.custom-btn-clr:hover {
-  background-color: #152259;
-  color: white;
-}
-.custom-pagination .page-item.active .page-link {
-  background-color: #509CDB; 
-  color: white;
-  border: none;
-}
 </style>

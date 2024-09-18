@@ -4,7 +4,7 @@
       <div class="fade-in">
         <div class="row">
           <div class="col-md-12">
-            <div class="card border-0 rounded shadow-lg " style="padding: 10px 20px;">
+            <div class="card border-0 rounded shadow-lg card-custom-main">
               <div class="card-header">
                 <span class="font-weight-bold"
                   ><i class="fa fa-folder"></i> EDIT CATEGORY</span
@@ -17,7 +17,7 @@
                     <input
                       type="file"
                       @change="handleFileChange"
-                      class="form-control"
+                      class="form-control shadow-none search-input-custom"
                     />
                   </div>
 
@@ -27,7 +27,7 @@
                       type="text"
                       v-model="category.name"
                       placeholder="Masukkan Nama Category"
-                      class="form-control"
+                      class="form-control shadow-none search-input-custom"
                     />
                     <div v-if="validation.name" class="mt-2">
                       <b-alert show variant="danger">{{

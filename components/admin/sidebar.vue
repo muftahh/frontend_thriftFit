@@ -90,15 +90,4 @@ a.nuxt-link-active {
   background: #152259;
   padding: 15px; 
 }
-
-.c-sidebar-nav-link {
-  border-radius: 8px; 
-  padding: 10px 20px;
-  margin-bottom: 10px; 
-  transition: background-color 0.3s ease; 
-}
-
-.c-sidebar-nav-link:hover {
-  background-color: rgba(80, 156, 189, 0.7); 
-}
 </style>

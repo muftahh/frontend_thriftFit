@@ -4,7 +4,7 @@
       <div class="fade-in">
         <div class="row">
           <div class="col-md-12">
-            <div class="card rounded shadow-lg " style="padding: 10px 20px;">
+            <div class="card rounded shadow-lg card-custom-main">
               <div class="card-header">
                 <span class="font-weight-bold"><i class="fa fa-folder"></i> EDIT PRODUCT</span>
               </div>
@@ -14,7 +14,7 @@
 
                   <div class="form-group">
                     <label>GAMBAR</label>
-                    <input type="file" @change="handleFileChange" class="form-control">
+                    <input type="file" @change="handleFileChange" class="form-control shadow-none search-input-custom">
                   </div>
 
                   <div class="row">
@@ -22,7 +22,7 @@
                       <div class="form-group">
                         <label>NAMA PRODUCT</label>
                         <input type="text" v-model="product.title" placeholder="Masukkan Nama Product"
-                          class="form-control">
+                          class="form-control shadow-none search-input-custom">
                         <div v-if="validation.title" class="mt-2">
                           <b-alert show variant="danger">{{ validation.title[0] }}</b-alert>
                         </div>
@@ -31,7 +31,7 @@
                     <div class="col-md-6">
                       <div class="form-group">
                         <label>CATEGORY</label>
-                        <select class="form-control" v-model="product.category_id">
+                        <select class="form-control shadow-none search-input-custom" v-model="product.category_id">
                           <option value="">-- select category --</option>
                           <option v-for="category in categories" :key="category.id" :value="category.id">{{ category.name }}</option>
                         </select>
@@ -47,7 +47,7 @@
                       <div class="form-group">
                         <label>WEIGHT (Gram)</label>
                         <input type="number" v-model="product.weight" placeholder="Masukkan Berat Product (Gram)"
-                          class="form-control">
+                          class="form-control shadow-none search-input-custom">
                         <div v-if="validation.weight" class="mt-2">
                           <b-alert show variant="danger">{{ validation.weight[0] }}</b-alert>
                         </div>
@@ -57,7 +57,7 @@
                       <div class="form-group">
                         <label>STOCK</label>
                         <input type="number" v-model="product.stock" placeholder="Masukkan Stock Product"
-                          class="form-control">
+                          class="form-control shadow-none search-input-custom">
                         <div v-if="validation.stock" class="mt-2">
                           <b-alert show variant="danger">{{ validation.stock[0] }}</b-alert>
                         </div>
@@ -80,7 +80,7 @@
                       <div class="form-group">
                         <label>PRICE</label>
                         <input type="number" v-model="product.price" placeholder="Masukkan Harga Product"
-                          class="form-control">
+                          class="form-control shadow-none search-input-custom">
                         <div v-if="validation.price" class="mt-2">
                           <b-alert show variant="danger">{{ validation.price[0] }}</b-alert>
                         </div>
@@ -90,7 +90,7 @@
                       <div class="form-group">
                         <label>DISCOUNT (%)</label>
                         <input type="number" v-model="product.discount" placeholder="Masukkan Discount Product (%)"
-                          class="form-control">
+                          class="form-control shadow-none search-input-custom">
                         <div v-if="validation.discount" class="mt-2">
                           <b-alert show variant="danger">{{ validation.discount[0] }}</b-alert>
                         </div>

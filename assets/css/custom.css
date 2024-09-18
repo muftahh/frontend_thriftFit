@@ -1,5 +1,5 @@
 body {
-    font-family: 'Quicksand', sans-serif;
+    font-family: 'Kumbh Sans', sans-serif;
     background: #BCCAD8;
 }
 
@@ -9,6 +9,40 @@ a {
 
 a:hover {
     color: #ac0800;
+}
+
+.custom-btn-clr {
+    background-color: #509CDB;
+    color: white;
+    border-radius: 8px;
+}
+  
+.custom-btn-clr:hover {
+    background-color: #152259;
+    color: white;
+}
+
+.c-sidebar-nav-link {
+    border-radius: 8px; 
+    padding: 10px 20px;
+    margin-bottom: 10px; 
+    transition: background-color 0.3s ease; 
+}
+
+.c-sidebar-nav-link:hover {
+    background-color: rgba(80, 156, 189, 0.7); 
+}
+
+.card-custom-main {
+    padding: 10px 20px;
+    font-family: 'Kumbh Sans', sans-serif;
+    font-weight: 500;
+}
+
+.search-input-custom {
+    border-top: none;
+    border-left: none;
+    border-right: none;
 }
 
 .header-main {
@@ -110,8 +144,8 @@ a:hover {
     color: #fff!important;
 }
 
-.border-top-orange {
-    border-top: 3px solid #e64a19!important;
+.border-top-custom {
+    border-top: 3px solid #152259!important;
 }
 
 .navbar-main {
@@ -340,9 +374,9 @@ hr.solid {
 
 .page-item.active .page-link {
     z-index: 3;
-    color: #fff;
-    background-color: #e64a1a;
-    border-color: #e64a1a;
+    background-color: #509CDB; 
+    color: white;
+    border-color: #509CDB;
 }
 
 /**

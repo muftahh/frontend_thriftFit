@@ -16,7 +16,7 @@
                     <div class="col-md-6">
                       <div class="form-group">
                         <label>FULL NAME</label>
-                        <input type="text" v-model="user.name" placeholder="Masukkan Nama User" class="form-control">
+                        <input type="text" v-model="user.name" placeholder="Masukkan Nama User" class="form-control shadow-none search-input-custom">
                         <div v-if="validation.name" class="mt-2">
                           <b-alert show variant="danger">{{ validation.name[0] }}</b-alert>
                         </div>
@@ -26,7 +26,7 @@
                       <div class="form-group">
                         <label>EMAIL ADDRESS</label>
                         <input type="email" v-model="user.email" placeholder="Masukkan Email Address"
-                          class="form-control">
+                          class="form-control shadow-none search-input-custom">
                         <div v-if="validation.email" class="mt-2">
                           <b-alert show variant="danger">{{ validation.email[0] }}</b-alert>
                         </div>
@@ -39,7 +39,7 @@
                       <div class="form-group">
                         <label>PASSWORD</label>
                         <input type="password" v-model="user.password" placeholder="Masukkan Password"
-                          class="form-control">
+                          class="form-control shadow-none search-input-custom">
                         <div v-if="validation.password" class="mt-2">
                           <b-alert show variant="danger">{{ validation.password[0] }}</b-alert>
                         </div>
@@ -49,7 +49,7 @@
                       <div class="form-group">
                         <label>PASSWORD CONFIRMATION</label>
                         <input type="password" v-model="user.password_confirmation"
-                          placeholder="Masukkan Konfirmasi Password" class="form-control">
+                          placeholder="Masukkan Konfirmasi Password" class="form-control shadow-none search-input-custom">
                       </div>
                     </div>
                   </div>

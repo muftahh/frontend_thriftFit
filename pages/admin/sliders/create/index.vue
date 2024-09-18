@@ -4,7 +4,7 @@
       <div class="fade-in">
         <div class="row">
           <div class="col-md-12">
-            <div class="card rounded shadow-lg " style="padding: 10px 20px;">
+            <div class="card rounded shadow-lg card-custom-main">
               <div class="card-header">
                 <span class="font-weight-bold"><i class="fa fa-folder"></i> ADD NEW SLIDER</span>
               </div>
@@ -14,7 +14,7 @@
 
                   <div class="form-group">
                     <label>GAMBAR</label>
-                    <input type="file" @change="handleFileChange" class="form-control">
+                    <input type="file" @change="handleFileChange" class="form-control shadow-none search-input-custom">
                     <div v-if="validation.image" class="mt-2">
                       <b-alert show variant="danger">{{ validation.image[0] }}</b-alert>
                     </div>
@@ -22,7 +22,7 @@
 
                   <div class="form-group">
                     <label>LINK SLIDER</label>
-                    <input type="text" v-model="slider.link" placeholder="Masukkan Link Slider" class="form-control">
+                    <input type="text" v-model="slider.link" placeholder="Masukkan Link Slider" class="form-control shadow-none search-input-custom">
                   </div>
 
                   <button class="btn btn-outline-success mr-1 btn-submit" type="submit"><i class="fa fa-paper-plane"></i>

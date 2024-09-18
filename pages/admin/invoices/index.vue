@@ -4,7 +4,7 @@
       <div class="fade-in">
         <div class="row">
           <div class="col-md-12">
-            <div class="card border-0 rounded shadow-lg " style="padding: 10px 20px;">
+            <div class="card border-0 rounded shadow-lg card-custom-main">
               <div class="card-header">
                 <span class="font-weight-bold"><i class="fa fa-shopping-cart"></i> INVOICES</span>
               </div>
@@ -12,7 +12,7 @@
 
                 <div class="form-group">
                     <div class="input-group mb-3">
-                      <input type="text" class="form-control shadow-none border-top-0 border-left-0 border-right-0"
+                      <input type="text" class="form-control shadow-none search-input-custom"
                       style="margin: 0px 8px; background-color: transparent;" v-model="search" @keypress.enter="searchData" placeholder="cari berdasarkan no. invoice">
                         <div class="input-group-append">
                             <button @click="searchData" class="btn custom-btn-clr"><i class="fa fa-search"></i>
@@ -120,18 +120,4 @@ export default {
 </script>
 
 <style scoped>
-.custom-btn-clr {
-  background-color: #509CDB;
-  color: white;
-  border-radius: 8px;
-}
-.custom-btn-clr:hover {
-  background-color: #152259;
-  color: white;
-}
-.custom-pagination .page-item.active .page-link {
-  background-color: #509CDB; 
-  color: white;
-  border: none;
-}
 </style>
