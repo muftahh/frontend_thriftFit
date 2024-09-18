@@ -35,7 +35,11 @@ export default {
 </script>
 
 <style scoped>
-  a.nuxt-link-active {
-    background: rgba(255, 222, 212, .05) !important;
-  }
+/* .card-body {
+  font-family: 'Kumbh Sans', sans-serif;
+} */
+
+a.nuxt-link-active {
+  background: rgba(255, 222, 212, .05) !important;
+}
 </style>

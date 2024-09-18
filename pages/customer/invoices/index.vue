@@ -34,6 +34,11 @@
                 <button v-if="row.item.statur == 'expired'" class="btn btn-sm btn-warning-2"> {{ row.item.statur }}</button>
                 <button v-if="row.item.statur == 'failed'" class="btn btn-sm btn-danger"> {{ row.item.statur }}</button>
               </template>
+              <template v-slot:cell(actions)="row">
+                  <b-button :to="{name: 'customer-invoices-show-snap_token', params: {snap_token: row.item.snap_token}}" variant="outline-success" size="sm">
+                      DETAIL
+                  </b-button>
+              </template>
             </b-table>
           </div>
         </div>

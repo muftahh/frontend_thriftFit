@@ -188,6 +188,9 @@ export default {
 </script>
 
 <style scoped>
+/* .c-main {
+  font-family: 'Kumbh Sans', sans-serif;
+} */
 .custom-btn-clr {
   background-color: #509CDB;
   color: white;
