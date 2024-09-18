@@ -1,5 +1,5 @@
 <template>
-  <header class="section-header fixed-top">
+  <header class="section-header fixed-top custom-font">
     <section class="header-main">
       <div class="container-fluid">
         <div class="row align-items-center">
@@ -40,10 +40,10 @@
           aria-expanded="false"> <span class="navbar-toggler-icon"></span> </button>
         <div class="navbar-collapse collapse" id="dropdown6">
           <ul class="navbar-nav mr-auto">
-            <li class="nav-item" > <a href="#" style="margin-right: 55px;" class="nav-link navbar-main-text nav-custom" data-abc="true"> KATEGORI</a> </li>
-            <li class="nav-item" > <a href="#" style="margin-right: 55px;" class="nav-link navbar-main-text nav-custom" data-abc="true"><i class="fa fa-shopping-bag"></i> SEMUA PRODUK</a> </li>
-            <li class="nav-item" > <a href="#" style="margin-right: 55px;" class="nav-link navbar-main-text nav-custom" data-abc="true"><i class="fa fa-info-circle"></i> TENTANG</a> </li>
-            <li class="nav-item" > <a href="#" style="margin-right: 55px;" class="nav-link navbar-main-text nav-custom" data-abc="true"><i class="fa fa-comments"></i> KONTAK</a> </li>
+            <li class="nav-item" > <a href="#" class="nav-link navbar-main-text nav-custom nav-web-link" data-abc="true"> KATEGORI</a> </li>
+            <li class="nav-item" > <a href="#" class="nav-link navbar-main-text nav-custom nav-web-link" data-abc="true"><i class="fa fa-shopping-bag"></i> SEMUA PRODUK</a> </li>
+            <li class="nav-item" > <a href="#" class="nav-link navbar-main-text nav-custom nav-web-link" data-abc="true"><i class="fa fa-info-circle"></i> TENTANG</a> </li>
+            <li class="nav-item" > <a href="#" class="nav-link navbar-main-text nav-custom nav-web-link" data-abc="true"><i class="fa fa-comments"></i> KONTAK</a> </li>
           </ul>
           <ul class="navbar-nav ml-auto">
             <li class="nav-item dropdown" v-if="!$auth.loggedIn">
@@ -81,7 +81,7 @@ export default {
 .nav-link {
   color: white;
   border-radius: 15px; 
-  padding: 10px 20px;
+  padding: 10px 0px;
   margin-bottom: 10px; 
   transition: background-color 0.3s ease; 
 }

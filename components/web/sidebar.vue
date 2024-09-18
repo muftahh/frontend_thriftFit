@@ -1,5 +1,5 @@
 <template>
-  <div class="card border-0 rounded shadow-lg" style="padding: 10px 7px;">
+  <div class="card border-0 rounded shadow-lg custom-font" style="padding: 10px 7px;">
     <div class="card-body">
       <h5>MAIN MENU</h5>
       <hr>
@@ -35,10 +35,6 @@ export default {
 </script>
 
 <style scoped>
-/* .card-body {
-  font-family: 'Kumbh Sans', sans-serif;
-} */
-
 a.nuxt-link-active {
   background: rgba(255, 222, 212, .05) !important;
 }

@@ -45,6 +45,15 @@ a:hover {
     border-right: none;
 }
 
+.custom-font{
+    font-family: 'Kumbh Sans', sans-serif;
+    font-weight: 500;
+}
+
+.nav-web-link{
+    margin-right: 22px;
+}
+
 .header-main {
     position: relative;
     padding-top: 7px;
