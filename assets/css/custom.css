@@ -51,7 +51,7 @@ a:hover {
 }
 
 .nav-web-link{
-    margin-right: 22px;
+    margin-right: 25px;
 }
 
 .header-main {
@@ -181,8 +181,9 @@ a:hover {
     top: 100%;
     left: 0;
     z-index: 1000;
-    display: none;
-    float: left;
+    display: block; 
+    opacity: 0; 
+    transform: translateY(-10px); 
     min-width: 10rem;
     padding: .5rem 0;
     margin: .5rem 7px 0px;
@@ -192,8 +193,14 @@ a:hover {
     list-style: none;
     background-color: #fff;
     background-clip: padding-box;
-    border: 1px solid rgba(0, 0, 0, .15);
-    border-radius: .25rem
+    border-radius: .25rem;
+    transition: opacity 0.3s ease, transform 0.3s ease; /* Transisi smooth */
+}
+
+/* Dropdown ditampilkan */
+.dropdown-menu.show {
+    opacity: 1; /* Muncul */
+    transform: translateY(0); /* Kembali ke posisi asli */
 }
 
 .dropdown-item {
@@ -282,14 +289,14 @@ hr.solid {
 .dropdown-item.active, .dropdown-item:active {
     color: #fff;
     text-decoration: none;
-    background-color: #e64a19;
+    background-color: rgb(80, 156, 189);
     border-radius: .5rem;
 }
 
 .dropdown-item:focus, .dropdown-item:hover {
     color: #fff;
     text-decoration: none;
-    background-color: #e64a19;
+    background-color: rgb(80, 156, 189);
     border-radius: .5rem;
 }
 

@@ -40,7 +40,18 @@
           aria-expanded="false"> <span class="navbar-toggler-icon"></span> </button>
         <div class="navbar-collapse collapse" id="dropdown6">
           <ul class="navbar-nav mr-auto">
-            <li class="nav-item" > <a href="#" class="nav-link navbar-main-text nav-custom nav-web-link" data-abc="true"> KATEGORI</a> </li>
+            <li class="nav-item dropdown"> <a class="nav-link dropdown-toggle nav-custom" href="#" data-toggle="dropdown"
+                data-abc="true" aria-expanded="false"><i class="fa fa-list-ul"></i> KATEGORI </a>
+              <div class="dropdown-menu">
+                <nuxt-link :to="{name: 'categories-slug', params: {slug: category.slug}}" class="dropdown-item" v-for="category in categories" :key="category.id">
+                  <img width="0"> {{ category.name }}
+                </nuxt-link>
+                <div class="dropdown-divider"></div>
+                <nuxt-link :to="{name: 'categories'}" class="dropdown-item active text-center" href="" data-abc="true">
+                  LIHAT SEMUA KATEGORI <i class="fa fa-long-arrow-alt-right"></i>
+                </nuxt-link>
+              </div>
+            </li>
             <li class="nav-item" > <a href="#" class="nav-link navbar-main-text nav-custom nav-web-link" data-abc="true"><i class="fa fa-shopping-bag"></i> SEMUA PRODUK</a> </li>
             <li class="nav-item" > <a href="#" class="nav-link navbar-main-text nav-custom nav-web-link" data-abc="true"><i class="fa fa-info-circle"></i> TENTANG</a> </li>
             <li class="nav-item" > <a href="#" class="nav-link navbar-main-text nav-custom nav-web-link" data-abc="true"><i class="fa fa-comments"></i> KONTAK</a> </li>
@@ -63,7 +74,15 @@
 
 <script>
 export default {
+  async fetch() {
+    await this.$store.dispatch('web/category/getCategoriesData')
+  },
 
+  computed: {
+    categories() {
+      return this.$store.state.web.category.categories
+    }
+  }
 }
 </script>
 
@@ -86,7 +105,7 @@ export default {
   transition: background-color 0.3s ease; 
 }
 .nav-custom:hover {
-  color: rgba(80, 156, 189);
+  color: rgb(80, 156, 189);
 }
  
 </style>
