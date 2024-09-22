@@ -30,8 +30,8 @@ export default {
   },
 
   computed: {
-    slider() {
-      return this.$store.web.slider.sliders
+    sliders() {
+      return this.$store.state.web.slider.sliders
     }
   }
 }
