@@ -1,5 +1,5 @@
 <template>
-  <div class="container-fluid mt-custom">
+  <div class="container-fluid mt-custom-2">
     <div class="fade-in">
       <div class="row">
           
@@ -53,16 +53,16 @@ export default {
 
     head() {
       return {
-        title: 'Products - MI STORE - Distributor Xiaomi Indonesia Resmi',
+        title: 'Products - ThriftFit',
         meta: [{
             hid: 'og:title',
             name: 'og:title',
-            content: 'MI STORE - Distributor Xiaomi Indonesia Resmi'
+            content: 'ThriftFit'
           },
           {
             hid: 'og:site_name',
             name: 'og:site_name',
-            content: 'Products - MI STORE - Distributor Xiaomi Indonesia Resmi'
+            content: 'Products - ThriftFit '
           },
           {
             hid: 'og:image',
@@ -72,7 +72,7 @@ export default {
           {
             hid: 'description',
             name: 'description',
-            content: 'Jual Produk Original Xiaomi Indonesia Bergaransi Resmi'
+            content: 'Jual Produk Original'
           },
         ]
       }
