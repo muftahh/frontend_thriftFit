@@ -50,8 +50,7 @@ export default {
       fields: [
         {
           label: 'Image',
-          key: 'image',
-          tdClass: 'text-center'
+          key: 'image'
         },
         {
           label: 'Link Slider',
