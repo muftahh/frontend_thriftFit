@@ -1,5 +1,5 @@
 <template>
-  <div class="mr-custom mb-5">
+  <div class="mr-custom mb-5 custom-font">
     <div class="fade-in">
 
     <!-- slider -->
@@ -25,7 +25,7 @@
             <div class="card-body bg-light-custom text-center rounded-bottom">
               <div class="mb-2">
                 <h6 class="font-weight-semibold mb-2"> 
-                  <nuxt-link :to="{name: 'products-slug', params: {slug: product.slug}}" class="text-default mb-2" data-abc="true">{{ product.title }}</nuxt-link> 
+                  <nuxt-link :to="{name: 'products-slug', params: {slug: product.slug}}" class="text-default mb-2 custom-font-w" data-abc="true">{{ product.title }}</nuxt-link> 
                 </h6> 
                 <nuxt-link :to="{name: 'categories-slug', params: {slug: product.category.slug}}" class="text-muted" data-abc="true">{{ product.category.name }}</nuxt-link>
               </div>
@@ -35,7 +35,7 @@
               <h5 v-if="product.discount > 0" class="mb-0 font-weight-semibold mt-3 text-success">
                 Rp. {{ formatPrice(calculateDiscount(product)) }}
               </h5>
-              <h5 v-else class="mb-0 font-weight-semibold mt-5">
+              <h5 v-else class="font-weight-semibold mt-4 mb-sm-4">
                 Rp. {{ formatPrice(product.price) }}
               </h5>
               

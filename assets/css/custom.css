@@ -49,7 +49,10 @@ a:hover {
     border-left: none;
     border-right: none;
 }
-
+.custom-font-w:hover {
+    text-decoration: none;
+    color: #509CDB;
+}
 .custom-font{
     font-family: 'Kumbh Sans', sans-serif;
     font-weight: 500;

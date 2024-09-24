@@ -1,11 +1,11 @@
 <template>
-  <div class="container-fluid mt-custom-2">
+  <div class="container-fluid mt-custom-2 custom-font">
     <div class="fade-in">
       <div class="row justify-content-center px-md-5">
           <div class="col-md-2 mb-3" v-for="category in categories" :key="category.id">
               <div class="card border-0 rounded shadow-sm">
                   <div class="card-body text-center">
-                      <nuxt-link :to="{name: 'categories-slug', params: {slug: category.slug}}" class="custom-font">
+                      <nuxt-link :to="{name: 'categories-slug', params: {slug: category.slug}}" class="custom-font-w">
                         <img :src="category.image" width="100" height="100">
                         <hr>
                         {{ category.name }}
@@ -61,9 +61,4 @@ export default {
 </script>
 
 <style scoped>
-.custom-font:hover {
-  text-decoration: none;
-  color: #509CDB;
-}
-
 </style>
