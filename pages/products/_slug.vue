@@ -45,7 +45,7 @@
                 </table>
               </div>
               <hr>
-              <button class="btn btn-lg custom-btn-clr border-0 shadow-sm"><i class="fa fa-shopping-cart"></i> TAMBAH KE
+              <button @click="addToCart(product.id, calculateDiscount(product), product.weight)" class="btn btn-lg custom-btn-clr border-0 shadow-sm"><i class="fa fa-shopping-cart"></i> TAMBAH KE
                 KERANJANG</button>
             </div>
           </div>
@@ -128,6 +128,38 @@ export default {
   computed: {
     product() {
       return  this.$store.state.web.product.product
+    }
+  },
+
+  methods: {
+    async addToCart(productId, price, weight) {
+      if (!this.$auth.loggedIn) {
+        return this.$router.push({
+          name: 'customer-login'
+        })
+      }
+
+      if (this.$auth.strategy.name != "customer") {
+        return this.$router.push({
+          name: 'customer-login'
+        })
+      }
+
+      await this.$store.dispatch('web/cart/storeCart', {
+        product_id: productId,
+        price: price,
+        qty: 1,
+        weight: weight
+      })
+      .then(() =>  {
+        this.$swal.fire({
+          title: 'BERHASIL!',
+          text: "Product Berhasil Ditambahkan di Keranjang!",
+          icon: 'success',
+          showConfirmButton: false,
+          timer: 3000
+        })
+      })
     }
   }
 }
