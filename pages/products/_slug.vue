@@ -26,7 +26,7 @@
               </h5>
 
               <div class="mt-3">
-                <div v-html="product.description"></div>
+                <div v-html="product.desc"></div>
               </div>
               <div class="table-responsive">
                 <table class="table table-sm table-borderless mb-0">

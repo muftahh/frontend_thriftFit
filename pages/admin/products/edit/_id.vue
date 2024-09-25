@@ -68,10 +68,10 @@
                   <div class="form-group">
                     <label>DESCRIPTION</label>
                     <client-only placeholder="loading...">
-                      <ckeditor-nuxt v-model="product.description" :config="editorConfig" />
+                      <ckeditor-nuxt v-model="product.desc" :config="editorConfig" />
                     </client-only>
-                    <div v-if="validation.description" class="mt-2">
-                      <b-alert show variant="danger">{{ validation.description[0] }}</b-alert>
+                    <div v-if="validation.desc" class="mt-2">
+                      <b-alert show variant="danger">{{ validation.desc[0] }}</b-alert>
                     </div>
                   </div>
 
@@ -138,7 +138,7 @@ export default {
         image: '',
         title: '',
         category_id: '',
-        description: '',
+        desc: '',
         weight: '',
         price: '',
         stock: '',
@@ -165,7 +165,7 @@ export default {
   mounted() {
     this.product.title = this.$store.state.admin.product.product.title
     this.product.category_id = this.$store.state.admin.product.product.category_id
-    this.product.description = this.$store.state.admin.product.product.description
+    this.product.desc = this.$store.state.admin.product.product.desc
     this.product.weight = this.$store.state.admin.product.product.weight
     this.product.price = this.$store.state.admin.product.product.price
     this.product.stock = this.$store.state.admin.product.product.stock
@@ -197,7 +197,7 @@ export default {
       formData.append('image', this.product.image)
       formData.append('title', this.product.title)
       formData.append('category_id', this.product.category_id)
-      formData.append('description', this.product.description)
+      formData.append('desc', this.product.desc)
       formData.append('weight', this.product.weight)
       formData.append('price', this.product.price)
       formData.append('stock', this.product.stock)
