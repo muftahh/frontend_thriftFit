@@ -76,7 +76,6 @@ export default {
   },
 
   methods: {
-    // untuk <form @submit.prevent="login">
     async login() {
       await this.$auth.loginWith('customer', {
         data: {
@@ -85,6 +84,10 @@ export default {
         }
       })
       .then(() => {
+
+        this.$store.dispatch('web/cart/getCartsData')
+        this.$store.dispatch('web/cart/getCartPrice')
+
         this.$router.push({
           name: 'customer-dashboard'
         })

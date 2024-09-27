@@ -13,14 +13,17 @@
               <div class="input-group w-100"> 
                 <input type="text" class="form-control search-form" v-model="search" @keypress.enter="searchData" style="width:55%;" placeholder="mau belanja apa hari ini ?">
                 <div class="input-group-append"> 
-                  <button @click="searchData" class="btn btn-primary search-button"> <i class="fa fa-search"></i> </button> 
+                  <button @click="searchData" class="btn btn-primary search-button"> <font-awesome-icon :icon="['fas', 'magnifying-glass']" style="color: #152259;" /> </button> 
                 </div>
               </div>
             </div>
           </div>
-          <div class="col-lg-5 col-xl-4 col-sm-8 col-md-4 col-4">
+          <div class="col-lg-5 col-xl-4 col-sm-8 col-md-4 col-7">
             <div class="d-flex justify-content-end">
-              <a href="#" class="btn search-button btn-md d-md-block ml-4 custom-text1"> <span class="ml-2">0</span> | Rp. 0</a>
+              <nuxt-link :to="{name: 'cart'}" class="btn search-button btn-md d-md-block ml-4 custom-text1"> 
+                <font-awesome-icon :icon="['fas', 'cart-shopping']" />
+                <span class="ml-2">{{ cartTotal }}
+                </span> | Rp. {{ formatPrice(cartPrice) }}</nuxt-link>
             </div>
           </div>
         </div>
@@ -76,11 +79,25 @@
 export default {
   async fetch() {
     await this.$store.dispatch('web/category/getCategoriesData')
+
+    if (this.$auth.loggedIn && this.$auth.strategy.name == 'customer') {
+
+      await this.$store.dispatch('web/cart/getCartsData')
+      await this.$store.dispatch('web/cart/getCartPrice')
+    }
   },
 
   computed: {
     categories() {
       return this.$store.state.web.category.categories
+    },
+
+    cartPrice() {
+      return this.$store.state.web.cart.cartPrice
+    },
+
+    cartTotal() {
+      return this.$store.state.web.cart.carts.length
     }
   },
 
