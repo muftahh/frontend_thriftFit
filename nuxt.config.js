@@ -33,7 +33,7 @@ export default {
       },
       {
         src: "https://app.sandbox.midtrans.com/snap/snap.js",
-        "data-client-key": "Mid-client-Zn-rqFKh8s50pK1A",
+        'data-client-key': 'SB-Mid-client-hslkBBWjOREjNE6K',
       },
     ],
   },
@@ -138,8 +138,7 @@ export default {
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
     // Workaround to avoid enforcing hard-coded localhost:3000: https://github.com/nuxt-community/axios-module/issues/308
-    baseURL: "http://localhost:8000",
-    // baseURL: "https://ecommerce.appdev.my.id",
+    baseURL: "http://localhost:8000"
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build

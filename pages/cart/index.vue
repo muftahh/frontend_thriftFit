@@ -184,7 +184,7 @@
               </div>
 
                <div class="col-md-12" v-if="btnCheckout">
-                <button class="btn btn-warning btn-lg btn-block">CHECKOUT</button>
+                <button @click.prevent="checkout" class="btn btn-warning btn-lg btn-block">CHECKOUT</button>
               </div>
 
             </div>
@@ -357,26 +357,76 @@ export default {
       }
 
       await this.$store.dispatch('web/rajaongkir/getOngkirData', {
-          destination: this.rajaongkir.city_id,
-          weight: this.cartWeight,
-          courier: this.courier.courier_name
+        destination: this.rajaongkir.city_id,
+        weight: this.cartWeight,
+        courier: this.courier.courier_name
+      })
+      .then(() => {
+        this.courier.showService = true
+      })
+    },
+
+    getServiceCost() {
+      //menghapus string -> | 
+      let shipping = this.courier.courier_service_cost.split("|")
+
+      this.courier.courier_cost = shipping[0]
+      this.courier.courier_service = shipping[1]
+
+      this.grandTotal = parseInt(this.cartPrice) + parseInt(this.courier.courier_cost)
+
+      this.btnCheckout = true
+    },
+
+    async checkout() {
+      if (this.customer.name && this.customer.phone && this.customer.address && this.cartWeight) {
+
+        let formData = new FormData();
+
+        formData.append('courier', this.courier.courier_name)
+        formData.append('courier_service', this.courier.courier_service)
+        formData.append('courier_cost', this.courier.courier_cost)
+        formData.append('weight', this.cartWeight)
+        formData.append('name', this.customer.name)
+        formData.append('phone', this.customer.phone)
+        formData.append('address', this.customer.address)
+        formData.append('city_id', this.rajaongkir.city_id)
+        formData.append('province_id', this.rajaongkir.province_id)
+        formData.append('grand_total', this.grandTotal)
+
+        await this.$store.dispatch('web/checkout/storeCheckout', formData)
+
+        .then(response => {
+          this.$swal.fire({
+            title: 'BERHASIL!',
+            text: "Checkout Berhasil Dilakukan!",
+            icon: 'success',
+            showConfirmButton: false,
+            timer: 2000
+          })
+
+          this.$router.push({
+            name: 'customer-invoices-show-snap_token',
+            params: {
+              snap_token: response.snap_token
+            }
+          })
         })
-        .then(() => {
-          this.courier.showService = true
-        })
-      },
+      }
 
-      getServiceCost() {
-        //menghapus string -> | 
-        let shipping = this.courier.courier_service_cost.split("|")
+      //validasi
+      if (!this.customer.name) {
+        this.validation.name = true
+      }
 
-        this.courier.courier_cost = shipping[0]
-        this.courier.courier_service = shipping[1]
+      if (!this.customer.phone) {
+        this.validation.phone = true
+      }
 
-        this.grandTotal = parseInt(this.cartPrice) + parseInt(this.courier.courier_cost)
-
-        this.btnCheckout = true
-      },
+      if (!this.customer.address) {
+        this.validation.address = true
+      }
+    }
   }
 }
 </script>
