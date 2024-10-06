@@ -93,14 +93,14 @@
                     </td>
                     <td>:</td>
                     <td>
-                      <button @click="payment(invoice.snap_token)" v-if="invoice.status == 'pending'"
+                      <button @click="payment(invoice.snap_token)" v-if="invoice.statur == 'pending'"
                         class="btn btn-info">BAYAR SEKARANG</button>
-                      <button v-else-if="invoice.status == 'success'"
-                        class="btn btn-success"><i class="fa fa-check-circle"></i> {{ invoice.status }}</button>
-                      <button v-else-if="invoice.status == 'expired'"
-                        class="btn btn-warning-2"><i class="fa fa-exclamation-triangle"></i> {{ invoice.status }}</button>
-                      <button v-else-if="invoice.status == 'failed'"
-                        class="btn btn-danger"><i class="fa fa-times-circle"></i> {{ invoice.status }}</button>
+                      <button v-else-if="invoice.statur == 'success'"
+                        class="btn btn-success"><i class="fa fa-check-circle"></i> {{ invoice.statur }}</button>
+                      <button v-else-if="invoice.statur == 'expired'"
+                        class="btn btn-warning-2"><i class="fa fa-exclamation-triangle"></i> {{ invoice.statur }}</button>
+                      <button v-else-if="invoice.statur == 'failed'"
+                        class="btn btn-danger"><i class="fa fa-times-circle"></i> {{ invoice.statur }}</button>
                     </td>
                   </tr>
                 </client-only>
@@ -133,7 +133,7 @@
                           </tr>
                         </table>
                         <!-- modal button -->
-                        <button v-if="invoice.status == 'success'" type="button" class="btn btn-warning-2 mt-4" data-toggle="modal"
+                        <button v-if="invoice.statur == 'success'" type="button" class="btn btn-warning-2 mt-4" data-toggle="modal"
                           :data-target="'#modal-'+order.id">
                           BERIKAN ULASAN
                         </button>
@@ -190,7 +190,6 @@
   </div>
 </template>
 
-
 <script>
 import Sidebar from '@/components/web/sidebar.vue'
 export default {
@@ -208,7 +207,7 @@ export default {
     }
   },
 
-  async asyncData({store, route}) {
+  async asyncData({ store, route }) {
     await store.dispatch('customer/invoice/getDetailInvoice', route.params.snap_token)
   },
 
@@ -228,73 +227,73 @@ export default {
   },
 
   methods: {
-    payment(snap_token) {
-      window.snap.pay(snap_token, {
-        onSuccess: function() {
-          router.push({
-            name: 'invoices-show-snap_token',
-            params: {
-              snap_token: snap_token
-            }
+      payment(snap_token) {
+        window.snap.pay(snap_token, {
+
+          onSuccess: function () {
+            router.push({
+              name: 'invoices-show-snap_token',
+              params: {
+                snap_token: snap_token
+              }
+            })
+          },
+          onPending: function () {
+            router.push({
+              name: 'invoices-show-snap_token',
+              params: {
+                snap_token: snap_token
+              }
+            })
+          },
+          onError: function () {
+            router.push({
+              name: 'invoices-show-snap_token',
+              params: {
+                snap_token: snap_token
+              }
+            })
+          }
+        })
+      },
+
+      async storeReview(orderId, productId) {
+        let formData = new FormData();
+        formData.append('rating', this.rating.star)
+        formData.append('review', this.rating.review)
+        formData.append('order_id', orderId)
+        formData.append('product_id', productId)
+
+        await this.$store.dispatch('customer/review/storeReview', formData)
+        .then(() => {
+          this.$nuxt.refresh()
+
+          this.rating.star = 0
+          this.rating.review = ''
+
+          this.$swal.fire({
+            title: 'BERHASIL!',
+            text: "Ulasan Berhasil Disimpan!",
+            icon: 'success',
+            showConfirmButton: false,
+            timer: 3000
           })
-        },
 
-        onPending: function() {
-          router.push({
-            name: 'invoices-show-snap_token',
-            params: {
-              snap_token: snap_token
-            }
+          this.$router.push({ path: this.$route.path });
+
+        })
+        .catch(() => {
+          this.$swal.fire({
+            title: 'GAGAL!',
+            text: "Anda sudah membuat ulasan untuk produk ini!",
+            icon: 'error',
+            showConfirmButton: false,
+            timer: 3000
           })
-        },
-
-        onError: function() {
-          router.push({
-            name: 'invoices-show-snap_token',
-            params: {
-              snap_token: snap_token
-            }
-          })
-        }
-      })
-    },
-
-    async storeReview(orderId, productId) {
-      let formData = new FormData();
-      formData.append('rating', this.rating.star)
-      formData.append('review', this.rating.review)
-      formData.append('order_id', orderId)
-      formData.append('product_id', productId)
-
-      await this.$store.dispatch('customer/review/storeReview', formData)
-      .then(() => {
-        this.$nuxt.refresh()
-
-        this.rating.star = 0
-        this.rating.review = ''
-
-        this.$swal.fire({
-          title: 'BERHASIL!',
-          text: "Ulasan Berhasil Disimpan!",
-          icon: 'success',
-          showConfirmButton: false,
-          timer: 3000
         })
 
-        this.$router.push({path: this.$route.path});
-      })
-      .catch(() => {
-        this.$swal.fire({
-          title: 'GAGAL!',
-          text: "Anda sudah membuat ulasan untuk produk ini!",
-          icon: 'error',
-          showConfirmButton: false,
-          timer: 3000
-        })
-      })
-
+      }
     }
-  }
 }
 </script>
 

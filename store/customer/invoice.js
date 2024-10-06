@@ -31,13 +31,13 @@ export const actions = {
     })
   },
 
-  getDetailInvoice({commit}, payload) {
+  getDetailInvoice({ commit }, payload) {
     return new Promise((resolve, reject) => {
       this.$axios.get(`/api/customer/invoices/${payload}`)
       .then(response => {
         commit('SET_INVOICE_DATA', response.data.data)
         resolve()
       })
-    }) 
-  }
+    })
+  },
 }
